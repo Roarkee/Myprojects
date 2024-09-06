@@ -17,3 +17,8 @@ def WeatherApp(city):
     sunrise_time=datetime.fromtimestamp(response["sys"]["sunrise"]+response["timezone"], timezone.utc).isoformat()
     sunset_time=datetime.fromtimestamp(response["sys"]["sunset"]+response["timezone"], timezone.utc).isoformat()
     return weather,temperature,humidity,pressure, sunrise_time, sunset_time
+
+city="london"
+url=BASE_URL+"appid="+ API_KEY +"&q="+city
+
+print(requests.get(url).json())
